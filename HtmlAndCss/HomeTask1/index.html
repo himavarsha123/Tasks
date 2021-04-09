@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="icon" type="image/png" href="./favicon.jpg" />
+    <title>NEWS BLOG</title>
+    <script src="https://kit.fontawesome.com/a2007fab84.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="icon">
+            <i class="fas fa-globe fa-3x icon"></i>
+        </div>
+        <div class="heading-container">
+            <div class="headings">
+                <p class="heading">NEWS BLOG</p>
+                <p class="subtitle">WORLDWIDE NEWS</p>
+            </div>
+        </div>
+        <div class="icon list-icon"><i class="fas fa-bars fa-2x icon"></i>
+            <div class="dropdown-content">
+                <div id="menu-category" class="options">
+                    <a id="category" href="#">Category</a>
+                </div>
+                <div id="menu-categories" class="menu-categories">
+                    <div class="menu-news-category"><a href="#">All</a></div>
+                    <div class="menu-news-category"><a href="#">Sports</a></div>
+                    <div class="menu-news-category"><a href="#">Science</a></div>
+                    <div class="menu-news-category"><a href="#">Technology</a></div>
+                    <div class="menu-news-category"><a href="#">Politics</a></div>
+                    <div class="menu-news-category"><a href="#">Weather</a></div>
+                </div>
+                <div id="subscribe" class="options">
+                    <a href="#">Subscribe</a>
+                </div> 
+                <div id="menu-subscribe" class="menu-subscribe">
+                    <input type="email" placeholder="Email Address" class="email-box"/>
+                    <input type="button" value="Subscribe" class="subscribe">
+                </div>
+            </div>
+        </div>    
+    </header>
+
+    <ul class="flex-container">
+        <li class="categories">
+            <label class="menu-title">SELECT CATEGORY</label>
+            <select class="news-category">
+                <option selected class="category">All</option>
+                <option class="category">Sports</option>
+                <option class="category">Science</option>
+                <option class="category">Technology</option>
+                <option class="category">Politics</option>
+                <option class="category">Weather</option>
+            </select>
+        </li>
+        <li class="all-news">
+            <p>ALL NEWS</p>
+        </li>
+        <li>
+            <div>
+                <label class="menu-title">SUBSCRIBE</label>
+                <div>
+                    <input type="email" placeholder="Email Address" class="email-box"/>
+                    <input type="button" value="Subscribe" class="subscribe">
+                </div>
+            </div>
+            
+        </li>
+    </ul>
+
+    <hr class="seperator">
+
+    <div class="vertical-flex-container">
+        <div class="horizantal-flex-container">
+            <div class="newspaper-image-container">
+                <img class="newspaper-image" src="./weather.jpg" alt="newspaper-image"/>
+            </div>
+            <div class="news-content">
+                <p class="news-title">Monsoon season in North and South India will be widespread for next two to three
+                     days from Jammu and Kashmir, Himachal Pradesh, Uttarkhand And Punjab to Tamil Nadu and Kerala.</p>
+                <small>Posted on <strong><time datetime="2021-03-29">March 29, 2021</time></strong> Category: <strong>Weather</strong></small>
+                <p class="news-content-preview">
+                    In North India, the mountains and plains are getting very good rainfall simultaneously. 
+                    In South India, Puducherry and Lakshadweep including Tamil Nadu and Kerala are witnessing
+                     widespread rainfall. This is the first time after the farewell of the south-west monsoon 
+                     2020, the rainy season on the widest terrain of the country.
+                </p>
+                <button class="reading-button">Continue Reading</button>
+            </div>
+        </div>
+
+        <hr class="news-seperator">
+
+        <div class="horizantal-flex-container">
+            <div class="newspaper-image-container">
+                <img class="newspaper-image" src="./handbone.jpg" alt="newspaper-image"/>
+            </div>
+            <div class="news-content">
+                <p class="news-title">Study finds diabetes patients to benefit from new 3D bio-printing 
+                    technique for bone repair</p>
+                <small>Posted on <strong><time datetime="2021-02-17">Feb 17, 2021</time></strong> Category: <strong>Science</strong></small>
+                <p class="news-content-preview">
+                    Bone defect is a serious problem for people with diabetes after fractures, but a new technique involving 
+                    3D bioprinting of a 'scaffold' for bone repair offers for the first time a way to overcome such bone 
+                    defects. For the first time, scientists believe they have developed an effective method for managing 
+                    bone defects in diabetes patients. The findings were first reported online and then published in the 
+                    journal Bioactive Materials in March.
+                </p>
+                <button class="reading-button">Continue Reading</button>
+            </div>
+        </div>
+        
+        <hr class="news-seperator">
+
+        <div class="horizantal-flex-container">
+            <div class="newspaper-image-container">
+                <img class="newspaper-image" src="./server.webp" alt="newspaper-image"/>
+            </div>
+            <div class="news-content">
+                <p class="news-title">Microsoft says 92% of Exchange servers have been patched or mitigated</p>
+                <small>Posted on <strong><time datetime="2021-01-20">Jan 20, 2021</time></strong> Category: <strong>Technology</strong></small>
+                <p class="news-content-preview">
+                    A hot potato: Microsoft says that 92% of Exchange servers have been patched or mitigated risks following
+                     four zero-day exploits. However, the company warns that already compromised servers are still at risk. 
+                     Admins are advised to check their servers to ensure that secondary attacks such as ransomware attacks 
+                     or data exfiltration are prevented from happening. However, the company warns that already compromised servers are still at risk. 
+                     Admins are advised to check their servers to ensure that secondary attacks such as ransomware attacks 
+                     or data exfiltration are prevented from happening.
+                </p>
+                <button class="reading-button">Continue Reading</button>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <p>&copy; NewsFeed 2019</p>
+    </footer>
+
+    <script>
+        document.getElementById("category").addEventListener("click", function() {
+            var menu = document.getElementById("menu-categories");
+            if(menu.style.display == "block") {
+                menu.style.display = "none";
+            } else {
+                menu.style.display = "block";
+            }  
+        });
+
+        document.getElementById("subscribe").addEventListener("click", function() {
+            var subscribe = document.getElementById("menu-subscribe");
+            if(subscribe.style.display == "block") {
+                subscribe.style.display = "none";
+            } else {
+                subscribe.style.display = "block";
+            }
+        })
+    </script>
+</body>
+</html>
