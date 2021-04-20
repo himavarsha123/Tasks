@@ -25,62 +25,42 @@
                 <div id="menu-category" class="options">
                     <a id="category" href="#">Category</a>
                 </div>
-                <div id="menu-categories" class="menu-categories">
-                    <div class="menu-news-category"><a href="#">All</a></div>
-                    <div class="menu-news-category"><a href="#">Sports</a></div>
-                    <div class="menu-news-category"><a href="#">Science</a></div>
-                    <div class="menu-news-category"><a href="#">Technology</a></div>
-                    <div class="menu-news-category"><a href="#">Politics</a></div>
-                    <div class="menu-news-category"><a href="#">Weather</a></div>
-                </div>
+                <div id="menu-categories-container" class="menu-categories"></div>
+
                 <div id="subscribe" class="options">
                     <a href="#">Subscribe</a>
                 </div> 
-                <div id="menu-subscribe" class="menu-subscribe">
-                    <input type="email" placeholder="Email Address" class="email-box"/>
-                    <input type="button" value="Subscribe" class="subscribe">
-                </div>
+                <div id="menu-subscribe-container" class="menu-subscribe"></div>
             </div>
         </div>    
     </header>
 
-    <ul class="flex-container">
-        <li class="categories">
+    <section class="flex-container">
+        <section class="categories">
             <label class="menu-title">SELECT CATEGORY</label>
-            <select class="news-category">
-                <option selected class="category">All</option>
-                <option class="category">Sports</option>
-                <option class="category">Science</option>
-                <option class="category">Technology</option>
-                <option class="category">Politics</option>
-                <option class="category">Weather</option>
-            </select>
-        </li>
-        <li class="all-news">
+            <div id="category-container"></div>
+        </section>
+
+        <section class="all-news">
             <p>ALL NEWS</p>
-        </li>
-        <li>
-            <div>
-                <label class="menu-title">SUBSCRIBE</label>
-                <div>
-                    <input type="email" placeholder="Email Address" class="email-box"/>
-                    <input type="button" value="Subscribe" class="subscribe">
-                </div>
-            </div>
-            
-        </li>
-    </ul>
+        </section>
+
+        <section>
+            <label class="menu-title">SUBSCRIBE</label>
+            <div id="subscribe-container"></div>
+        </section>
+    </section>
 
     <hr class="seperator">
 
     <div class="vertical-flex-container">
-        <div class="horizantal-flex-container">
-            <div class="newspaper-image-container">
+        <article class="horizantal-flex-container">
+            <figure class="newspaper-image-container">
                 <img class="newspaper-image" src="./weather.jpg" alt="newspaper-image"/>
-            </div>
+            </figure>
             <div class="news-content">
-                <p class="news-title">Monsoon season in North and South India will be widespread for next two to three
-                     days from Jammu and Kashmir, Himachal Pradesh, Uttarkhand And Punjab to Tamil Nadu and Kerala.</p>
+                <h2 class="news-title">Monsoon season in North and South India will be widespread for next two to three
+                     days from Jammu and Kashmir, Himachal Pradesh, Uttarkhand And Punjab to Tamil Nadu and Kerala.</h2>
                 <small>Posted on <strong><time datetime="2021-03-29">March 29, 2021</time></strong> Category: <strong>Weather</strong></small>
                 <p class="news-content-preview">
                     In North India, the mountains and plains are getting very good rainfall simultaneously. 
@@ -90,17 +70,17 @@
                 </p>
                 <button class="reading-button">Continue Reading</button>
             </div>
-        </div>
+        </article>
 
         <hr class="news-seperator">
 
-        <div class="horizantal-flex-container">
-            <div class="newspaper-image-container">
+        <article class="horizantal-flex-container">
+            <figure class="newspaper-image-container">
                 <img class="newspaper-image" src="./handbone.jpg" alt="newspaper-image"/>
-            </div>
+            </figure>
             <div class="news-content">
-                <p class="news-title">Study finds diabetes patients to benefit from new 3D bio-printing 
-                    technique for bone repair</p>
+                <h2 class="news-title">Study finds diabetes patients to benefit from new 3D bio-printing 
+                    technique for bone repair</h2>
                 <small>Posted on <strong><time datetime="2021-02-17">Feb 17, 2021</time></strong> Category: <strong>Science</strong></small>
                 <p class="news-content-preview">
                     Bone defect is a serious problem for people with diabetes after fractures, but a new technique involving 
@@ -111,16 +91,16 @@
                 </p>
                 <button class="reading-button">Continue Reading</button>
             </div>
-        </div>
+        </article>
         
         <hr class="news-seperator">
 
-        <div class="horizantal-flex-container">
-            <div class="newspaper-image-container">
+        <article class="horizantal-flex-container">
+            <figure class="newspaper-image-container">
                 <img class="newspaper-image" src="./server.webp" alt="newspaper-image"/>
-            </div>
+            </figure>
             <div class="news-content">
-                <p class="news-title">Microsoft says 92% of Exchange servers have been patched or mitigated</p>
+                <h2 class="news-title">Microsoft says 92% of Exchange servers have been patched or mitigated</h2>
                 <small>Posted on <strong><time datetime="2021-01-20">Jan 20, 2021</time></strong> Category: <strong>Technology</strong></small>
                 <p class="news-content-preview">
                     A hot potato: Microsoft says that 92% of Exchange servers have been patched or mitigated risks following
@@ -133,14 +113,45 @@
                 <button class="reading-button">Continue Reading</button>
             </div>
         </div>
-    </div>
+    </article>
+
     <footer class="footer">
         <p>&copy; NewsFeed 2019</p>
     </footer>
 
+    <template id="category-template">
+        <select class="news-category">
+            <option selected class="category">All</option>
+            <option class="category">Sports</option>
+            <option class="category">Science</option>
+            <option class="category">Technology</option>
+            <option class="category">Politics</option>
+            <option class="category">Weather</option>
+        </select>
+    </template>
+
+    <template id="subscribe-template">
+        <input type="email" placeholder="Email Address" class="email-box"/>
+        <input type="button" value="Subscribe" class="subscribe">
+    </template>
+
     <script>
+        window.onload = function() {
+            var categoryTemplate = document.getElementById("category-template");
+            const menuCategoryNode1 = document.importNode(categoryTemplate.content, true);
+            document.getElementById("menu-categories-container").appendChild(menuCategoryNode1);
+            const menuCategoryNode2 = document.importNode(categoryTemplate.content, true);
+            document.getElementById("category-container").appendChild(menuCategoryNode2);
+
+            var subscribeTemplate = document.getElementById("subscribe-template");
+            const subscribeNode1 = document.importNode(subscribeTemplate.content, true);
+            document.getElementById("menu-subscribe-container").appendChild(subscribeNode1);
+            const subscribeNode2 = document.importNode(subscribeTemplate.content, true);
+            document.getElementById("subscribe-container").appendChild(subscribeNode2);
+        }
+
         document.getElementById("category").addEventListener("click", function() {
-            var menu = document.getElementById("menu-categories");
+            var menu = document.getElementById("menu-categories-container");
             if(menu.style.display == "block") {
                 menu.style.display = "none";
             } else {
@@ -149,7 +160,7 @@
         });
 
         document.getElementById("subscribe").addEventListener("click", function() {
-            var subscribe = document.getElementById("menu-subscribe");
+            var subscribe = document.getElementById("menu-subscribe-container");
             if(subscribe.style.display == "block") {
                 subscribe.style.display = "none";
             } else {

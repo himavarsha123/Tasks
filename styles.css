@@ -6,7 +6,7 @@ body {
     margin: 0px;
 }
 
-p {
+p, h2, figure {
     margin-block-start: 0;
     margin-block-end: 0;
 }
@@ -41,7 +41,7 @@ p {
 }
 
 .options {
-    width: 100px;
+    width: auto;
     height: 50px;
     border-radius: 0.25rem;
     display: flex;
@@ -49,6 +49,7 @@ p {
     justify-content: center;
     align-items: center;
     transition: all 0.5s;
+    padding: 0px 20px;
 }
 
 .options:hover {
@@ -63,46 +64,14 @@ p {
     color:white;
 }
 
-.menu-categories {
-    display: none;
-}
-
-.menu-news-category {
-    width: 100px;
-    height: 30px;
-    border-bottom: 1px solid white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.5s;
-    background-color: #1b1717;
-    font-size: 12px;
-}
-
-.menu-news-category:hover {
-    background-color: #424642;
-}
-
-.menu-news-category a {
-    color: white;
-}
-
-#subscribe {
-    position: relative;
-}
-
-.menu-subscribe {
+.menu-categories-container, .menu-subscribe-container {
     display: none;
 }
 
 #menu-subscribe {
-    position: absolute;
-    right: 0;
-    padding: 20px 20px;
+    padding: 10px 20px;
     width: auto;
     height: auto;
-    background-color: #1b1717;
     border-radius: 0.5rem;
 }
 
@@ -186,6 +155,7 @@ p {
     font-weight: bolder;
     font-size: 2vw;
 }
+
 .email-box {
     width: 180px;
     height: 30px;
@@ -227,7 +197,9 @@ p {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center
+    align-items: center;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
 }
 
 .newspaper-image {
@@ -335,5 +307,9 @@ p {
     .news-content {
         text-align: center;
         padding: 0px 30px;
+    }
+
+    .news-category {
+        width: 100%;
     }
 }
